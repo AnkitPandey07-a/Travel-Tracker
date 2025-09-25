@@ -1,0 +1,17 @@
+{
+  "name": "travel-tracker",
+  "version": "1.0.0",
+  "description": "Travel trip tracking web application",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "cd frontend && npm run dev",
+    "build": "cd frontend && npm run build",
+    "install-frontend": "cd frontend && npm install"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "sqlite3": "^5.1.6",
+    "cors": "^2.8.5"
+  }
+}

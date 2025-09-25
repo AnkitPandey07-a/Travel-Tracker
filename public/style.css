@@ -1,0 +1,464 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    animation: backgroundShift 10s ease-in-out infinite alternate;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+
+@keyframes backgroundShift {
+    0% { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+    100% { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+}
+
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    animation: slideIn 0.8s ease-out;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+    text-align: center;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 2.8em;
+    font-weight: 700;
+    margin-bottom: 30px;
+    animation: pulse 2s ease-in-out infinite alternate;
+    text-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    letter-spacing: 1px;
+    cursor: default;
+    transition: all 0.3s ease;
+}
+
+h1:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 20px rgba(102, 126, 234, 0.3));
+}
+
+@keyframes pulse {
+    from { transform: scale(1); }
+    to { transform: scale(1.05); }
+}
+
+h3 {
+    color: #555;
+    margin-bottom: 10px;
+    font-weight: 600;
+    font-size: 1.2em;
+    transition: color 0.3s ease;
+}
+
+h3:hover {
+    color: #667eea;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.location-section {
+    background: linear-gradient(145deg, #f0f0f0, #ffffff);
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    box-shadow: inset 5px 5px 10px #d1d1d1, inset -5px -5px 10px #ffffff;
+    transition: all 0.3s ease;
+}
+
+.location-section:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.form-row {
+    display: flex;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #555;
+    font-size: 0.95em;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+label:hover {
+    color: #667eea;
+    transform: translateX(3px);
+}
+
+input, select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    background: linear-gradient(white, white) padding-box,
+                linear-gradient(45deg, #667eea, #764ba2) border-box;
+    transition: all 0.3s ease;
+    letter-spacing: 0.3px;
+}
+
+input:focus, select:focus {
+    outline: none;
+    transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+    font-weight: 500;
+}
+
+input::placeholder {
+    color: #999;
+    font-weight: 300;
+    transition: all 0.3s ease;
+}
+
+input:focus::placeholder {
+    color: #ccc;
+    transform: translateX(5px);
+}
+
+button {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+button:hover::before {
+    left: 100%;
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+button[type="submit"] {
+    width: 100%;
+    background: linear-gradient(45deg, #28a745, #20c997);
+    padding: 18px;
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 20px;
+    animation: submitPulse 2s ease-in-out infinite;
+    text-transform: none;
+    letter-spacing: 1px;
+}
+
+@keyframes submitPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.4); }
+    50% { box-shadow: 0 0 0 10px rgba(40, 167, 69, 0); }
+}
+
+button[type="submit"]:hover {
+    background: linear-gradient(45deg, #218838, #1e7e34);
+    animation: none;
+}
+
+#message {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: 500;
+    transform: translateY(10px);
+    opacity: 0;
+    transition: all 0.3s ease;
+    font-size: 15px;
+    letter-spacing: 0.3px;
+}
+
+#message.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.success {
+    background: linear-gradient(45deg, #d4edda, #c3e6cb);
+    color: #155724;
+    border: 2px solid #28a745;
+    animation: successBounce 0.6s ease;
+}
+
+.error {
+    background: linear-gradient(45deg, #f8d7da, #f5c6cb);
+    color: #721c24;
+    border: 2px solid #dc3545;
+    animation: errorShake 0.6s ease;
+}
+
+@keyframes successBounce {
+    0%, 20%, 60%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    80% { transform: translateY(-5px); }
+}
+
+@keyframes errorShake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+.trips-section {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px solid rgba(102, 126, 234, 0.2);
+}
+
+.trips-section h2 {
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.8em;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.trips-section h2:hover {
+    color: #667eea;
+    transform: scale(1.02);
+}
+
+.trip-card {
+    background: linear-gradient(145deg, #f8f9ff, #e8ecff);
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    animation: fadeInUp 0.5s ease;
+}
+
+.trip-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.trip-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.delete-btn {
+    background: linear-gradient(45deg, #dc3545, #c82333);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    margin: 0;
+    padding: 0;
+}
+
+.delete-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(220, 53, 69, 0.4);
+}
+
+.trip-number {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.trip-number:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.trip-date {
+    color: #666;
+    font-size: 12px;
+    font-weight: 400;
+    margin-right: 10px;
+    transition: color 0.3s ease;
+}
+
+.trip-date:hover {
+    color: #667eea;
+}
+
+.trip-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.trip-detail {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.3s ease;
+    padding: 4px;
+    border-radius: 6px;
+}
+
+.trip-detail:hover {
+    background: rgba(102, 126, 234, 0.1);
+    transform: translateX(3px);
+}
+
+.trip-detail strong {
+    color: #333;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.trip-detail:hover strong {
+    color: #667eea;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.no-trips {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+    padding: 20px;
+    font-weight: 300;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.no-trips:hover {
+    color: #667eea;
+    transform: scale(1.02);
+}
+
+.step {
+    animation: slideIn 0.5s ease;
+}
+
+.step h3 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 1.4em;
+}
+
+.step-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.prev-btn, .next-btn {
+    flex: 1;
+    padding: 12px;
+    font-size: 16px;
+}
+
+.prev-btn {
+    background: linear-gradient(45deg, #6c757d, #5a6268);
+}
+
+.step-indicator {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.step-dot {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: #666;
+    transition: all 0.3s ease;
+}
+
+.step-dot.active {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.step-dot.completed {
+    background: linear-gradient(45deg, #28a745, #20c997);
+    color: white;
+}

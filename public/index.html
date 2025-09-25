@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Tracker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Travel Trip Tracker</h1>
+        
+        <form id="tripForm">
+            <!-- Step 1: Trip Number -->
+            <div class="step" id="step1">
+                <h3>Step 1: Trip Information</h3>
+                <div class="form-group">
+                    <label>Trip Number:</label>
+                    <input type="number" id="tripNumber" required>
+                </div>
+                <button type="button" class="next-btn" onclick="nextStep()">Next</button>
+            </div>
+
+            <!-- Step 2: Origin -->
+            <div class="step" id="step2" style="display:none">
+                <h3>Step 2: Origin Location</h3>
+                <div class="location-section">
+                    <button type="button" id="detectOrigin">Detect Current Location</button>
+                    <div class="form-row">
+                        <input type="number" id="originLat" placeholder="Latitude" step="any" required>
+                        <input type="number" id="originLng" placeholder="Longitude" step="any" required>
+                    </div>
+                    <input type="datetime-local" id="startTime" required>
+                </div>
+                <div class="step-buttons">
+                    <button type="button" class="prev-btn" onclick="prevStep()">Previous</button>
+                    <button type="button" class="next-btn" onclick="nextStep()">Next</button>
+                </div>
+            </div>
+
+            <!-- Step 3: Destination -->
+            <div class="step" id="step3" style="display:none">
+                <h3>Step 3: Destination Location</h3>
+                <div class="location-section">
+                    <button type="button" id="detectDestination">Detect Current Location</button>
+                    <div class="form-row">
+                        <input type="number" id="destinationLat" placeholder="Latitude" step="any" required>
+                        <input type="number" id="destinationLng" placeholder="Longitude" step="any" required>
+                    </div>
+                    <input type="datetime-local" id="endTime" required>
+                </div>
+                <div class="step-buttons">
+                    <button type="button" class="prev-btn" onclick="prevStep()">Previous</button>
+                    <button type="button" class="next-btn" onclick="nextStep()">Next</button>
+                </div>
+            </div>
+
+            <!-- Step 4: Trip Details -->
+            <div class="step" id="step4" style="display:none">
+                <h3>Step 4: Trip Details</h3>
+                <div class="form-group">
+                    <label>Mode of Transport:</label>
+                    <select id="mode" required>
+                        <option value="">Select Mode</option>
+                        <option value="walking">Walking</option>
+                        <option value="cycling">Cycling</option>
+                        <option value="car">Car</option>
+                        <option value="bus">Bus</option>
+                        <option value="train">Train</option>
+                        <option value="flight">Flight</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Distance (km):</label>
+                    <input type="number" id="distance" step="0.1" required>
+                </div>
+                <div class="form-group">
+                    <label>Trip Purpose:</label>
+                    <select id="purpose" required>
+                        <option value="">Select Purpose</option>
+                        <option value="work">Work</option>
+                        <option value="education">Education</option>
+                        <option value="shopping">Shopping</option>
+                        <option value="recreation">Recreation</option>
+                        <option value="medical">Medical</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Number of Companions:</label>
+                    <input type="number" id="companions" min="0" required>
+                </div>
+                <div class="form-group">
+                    <label>Frequency:</label>
+                    <select id="frequency" required>
+                        <option value="">Select Frequency</option>
+                        <option value="daily">Daily</option>
+                        <option value="weekly">Weekly</option>
+                        <option value="monthly">Monthly</option>
+                        <option value="rarely">Rarely</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Cost ($):</label>
+                    <input type="number" id="cost" step="0.01" min="0" required>
+                </div>
+                <div class="step-buttons">
+                    <button type="button" class="prev-btn" onclick="prevStep()">Previous</button>
+                    <button type="submit">Save Trip</button>
+                </div>
+            </div>
+        </form>
+
+        <div class="step-indicator">
+            <div class="step-dot active" id="dot1">1</div>
+            <div class="step-dot" id="dot2">2</div>
+            <div class="step-dot" id="dot3">3</div>
+            <div class="step-dot" id="dot4">4</div>
+        </div>
+        
+        <div id="message"></div>
+        
+        <div class="trips-section">
+            <h2>My Trips</h2>
+            <div id="tripsList"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
